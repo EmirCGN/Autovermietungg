@@ -1,0 +1,35 @@
+﻿<Window x:Class="autovermietung.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Autovermietung" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Bestand:" VerticalAlignment="Top" FontSize="16"/>
+        <ListView Name="carListView" HorizontalAlignment="Left" Margin="10,40,0,10" VerticalAlignment="Top" Width="300" SelectionChanged="carListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Fahrzeug" Width="200" DisplayMemberBinding="{Binding DisplayString}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="355,36,0,0" VerticalAlignment="Top">
+            <TextBlock Text="Marke:"/>
+            <TextBox Name="markeTextBox" Width="200" Margin="0,5,0,5"/>
+
+            <TextBlock Text="Modell:"/>
+            <TextBox Name="modellTextBox" Width="200" Margin="0,5,0,5"/>
+
+            <TextBlock Text="Baujahr:"/>
+            <TextBox Name="baujahrTextBox" Width="200" Margin="0,5,0,5"/>
+
+            <TextBlock Text="Km-Stand:"/>
+            <TextBox Name="kmStandTextBox" Width="200" Margin="0,5,0,5" Text="{Binding SelectedItem.Kilometerstand, ElementName=carListView}"/>
+
+            <TextBlock Text="Preis:"/>
+            <TextBox Name="preisTextBox" Width="200" Margin="0,5,0,5" Text="{Binding SelectedItem.Preis, ElementName=carListView}"/>
+
+            <Button Content="+" Width="100" HorizontalAlignment="Left" Margin="0,10,0,0" Click="Hinzufuegen_Click"/>
+            <Button Content="-" Width="100" HorizontalAlignment="Left" Margin="0,5,0,0" Click="Entfernen_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
