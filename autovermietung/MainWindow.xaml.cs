@@ -40,8 +40,7 @@ namespace autovermietung
             {
                 Fahrzeug neuesAuto = new Fahrzeug { Marke = marke, Modell = modell, Baujahr = baujahr, Kilometerstand = kmStand, Preis = preis };
                 fahrzeuge.Add(neuesAuto);
-
-                // Leeren der Textboxen nach dem Hinzufügen
+                
                 ClearTextBoxes();
             }
             else
